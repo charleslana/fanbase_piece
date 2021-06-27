@@ -23,6 +23,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  rotated_corner_decoration:
+  flutter_launcher_icons:    
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -49,6 +51,7 @@ flutter:
     - assets/images/
     - assets/images/icons/
     - assets/images/grid/
+    - assets/images/logo/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
@@ -65,11 +68,23 @@ flutter:
     - family: PiratesWriters
       fonts:
         - asset: assets/fonts/PiratesWriters.ttf
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
+
+    - family: Pirates
+      fonts:
+        - asset: assets/fonts/Pirates.ttf
+        
+    - family: Retroyal
+      fonts:
+        - asset: assets/fonts/Retroyal-Thin.ttf
+
+    - family: Skorid
+      fonts:
+        - asset: assets/fonts/Skorid-Regular.ttf        
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: assets/images/icons/icon.png  
