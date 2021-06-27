@@ -1,10 +1,20 @@
+import 'package:fanbase_piece/src/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final AppBar appBar;
-  const MyAppBar({Key? key, required this.title, required this.appBar})
-      : super(key: key);
+  final bool? back;
+  final bool? home;
+
+  const MyAppBar({
+    Key? key,
+    required this.title,
+    required this.appBar,
+    this.back,
+    this.home,
+  }) : super(key: key);
+
   Size get preferredSize => new Size.fromHeight(appBar.preferredSize.height);
 
   @override
@@ -20,11 +30,13 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
       ),
       backgroundColor: Colors.transparent,
-      leading: Padding(
-        padding: EdgeInsets.all(5.0),
-        child: Image(
-          image: AssetImage('assets/images/icons/appbar_icon.png'),
+      leading: IconButton(
+        icon: Image(
+          image: AssetImage('assets/images/icons/appbar.png'),
         ),
+        onPressed: () => home == null
+            ? null
+            : Navigator.of(context).pushNamed(AppRoutes.HOME),
       ),
       centerTitle: true,
       title: Text(
@@ -34,15 +46,20 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
       ),
       actions: [
-        Padding(
-          padding: EdgeInsets.all(0.0),
-          child: IconButton(
-            icon: Image(
-              image: AssetImage('assets/images/icons/favorite.png'),
-            ),
-            onPressed: () {},
-          ),
-        ),
+        back == null
+            ? IconButton(
+                icon: Image(
+                  image: AssetImage('assets/images/icons/favorite.png'),
+                ),
+                onPressed: () =>
+                    Navigator.of(context).pushNamed(AppRoutes.FAVORITE),
+              )
+            : IconButton(
+                icon: Image(
+                  image: AssetImage('assets/images/icons/back.png'),
+                ),
+                onPressed: () => Navigator.of(context).pop(),
+              ),
       ],
     );
   }

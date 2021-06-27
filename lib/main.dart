@@ -1,4 +1,6 @@
-import 'package:fanbase_piece/src/routes/routes.dart';
+import 'package:fanbase_piece/src/routes/app_routes.dart';
+import 'package:fanbase_piece/src/views/character.dart';
+import 'package:fanbase_piece/src/views/favorite.dart';
 import 'package:fanbase_piece/src/views/home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -28,7 +30,9 @@ class MyApp extends StatelessWidget {
         fontFamily: 'PiratesWriters',
       ),
       routes: {
-        Routes.HOME: (_) => Home(),
+        AppRoutes.HOME: (_) => Home(),
+        AppRoutes.FAVORITE: (_) => Favorite(),
+        AppRoutes.CHARACTER: (_) => Character(),
       },
     );
   }
