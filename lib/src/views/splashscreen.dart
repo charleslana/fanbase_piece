@@ -34,7 +34,7 @@ class _SplashscreenState extends State<Splashscreen> {
               children: [
                 SizedBox(
                   width: 200,
-                  child: Image.asset('assets/images/icons/icon.png'),
+                  child: Image.asset('assets/images/logo/fanbase_piece.png'),
                 ),
                 Padding(
                   padding: EdgeInsets.all(30),
