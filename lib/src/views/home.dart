@@ -12,7 +12,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar(
+      appBar: BaseAppBar(
         title: 'Fanbase Piece',
         appBar: AppBar(),
       ),

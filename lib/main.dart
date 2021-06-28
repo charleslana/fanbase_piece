@@ -1,6 +1,6 @@
 import 'package:fanbase_piece/src/routes/app_routes.dart';
-import 'package:fanbase_piece/src/views/character.dart';
-import 'package:fanbase_piece/src/views/favorite.dart';
+import 'package:fanbase_piece/src/views/characters.dart';
+import 'package:fanbase_piece/src/views/favorites.dart';
 import 'package:fanbase_piece/src/views/home.dart';
 import 'package:fanbase_piece/src/views/logo.dart';
 import 'package:fanbase_piece/src/views/splashscreen.dart';
@@ -35,8 +35,8 @@ class MyApp extends StatelessWidget {
         AppRoutes.LOGO: (_) => Logo(),
         AppRoutes.SPLASHSCREEN: (_) => Splashscreen(),
         AppRoutes.HOME: (_) => Home(),
-        AppRoutes.FAVORITE: (_) => Favorite(),
-        AppRoutes.CHARACTER: (_) => Character(),
+        AppRoutes.FAVORITES: (_) => Favorites(),
+        AppRoutes.CHARACTERS: (_) => BaseCharacters(),
       },
     );
   }

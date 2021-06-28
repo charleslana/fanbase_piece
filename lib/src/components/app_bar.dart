@@ -1,13 +1,14 @@
 import 'package:fanbase_piece/src/routes/app_routes.dart';
+import 'package:fanbase_piece/src/views/home.dart';
 import 'package:flutter/material.dart';
 
-class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
+class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final AppBar appBar;
   final bool? back;
   final bool? home;
 
-  const MyAppBar({
+  const BaseAppBar({
     Key? key,
     required this.title,
     required this.appBar,
@@ -36,7 +37,8 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
         onPressed: () => home == null
             ? null
-            : Navigator.of(context).pushNamed(AppRoutes.HOME),
+            : Navigator.pushReplacement(context,
+                MaterialPageRoute(builder: (BuildContext context) => Home())),
       ),
       centerTitle: true,
       title: Text(
@@ -52,7 +54,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
                   image: AssetImage('assets/images/icons/favorite.png'),
                 ),
                 onPressed: () =>
-                    Navigator.of(context).pushNamed(AppRoutes.FAVORITE),
+                    Navigator.of(context).pushNamed(AppRoutes.FAVORITES),
               )
             : IconButton(
                 icon: Image(
