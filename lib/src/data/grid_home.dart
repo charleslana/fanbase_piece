@@ -4,12 +4,12 @@ import 'package:fanbase_piece/src/routes/app_routes.dart';
 const DATA_GRID_HOME = {
   '1': GridCardOption(
     title: 'Personagens',
-    image: 'assets/images/grid/character.png',
+    image: 'assets/images/grid/characters.png',
     route: AppRoutes.CHARACTERS,
   ),
   '2': GridCardOption(
     title: 'Cenários',
-    image: 'assets/images/grid/scene.png',
+    image: 'assets/images/grid/scenes.png',
     route: AppRoutes.HOME,
   ),
   '3': GridCardOption(
@@ -39,7 +39,7 @@ const DATA_GRID_HOME = {
   ),
   '8': GridCardOption(
     title: 'Sons',
-    image: 'assets/images/grid/sound.png',
+    image: 'assets/images/grid/sounds.png',
     route: AppRoutes.HOME,
   ),
 };

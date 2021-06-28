@@ -51,7 +51,7 @@ class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
         back == null
             ? IconButton(
                 icon: Image(
-                  image: AssetImage('assets/images/icons/favorite.png'),
+                  image: AssetImage('assets/images/icons/favorites.png'),
                 ),
                 onPressed: () =>
                     Navigator.of(context).pushNamed(AppRoutes.FAVORITES),
