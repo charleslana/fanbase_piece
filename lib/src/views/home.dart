@@ -2,12 +2,12 @@ import 'package:fanbase_piece/src/components/app_bar.dart';
 import 'package:fanbase_piece/src/components/grid_card_home.dart';
 import 'package:fanbase_piece/src/components/main_background.dart';
 import 'package:fanbase_piece/src/data/grid_home.dart';
-import 'package:fanbase_piece/src/models/grid_card_option.dart';
+import 'package:fanbase_piece/src/models/grid_card_home_option.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatelessWidget {
   Home({Key? key}) : super(key: key);
-  final Map<String, GridCardOption> options = {...DATA_GRID_HOME};
+  final Map<String, GridCardHomeOption> options = {...DATA_GRID_HOME};
 
   @override
   Widget build(BuildContext context) {

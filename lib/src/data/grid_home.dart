@@ -1,45 +1,40 @@
-import 'package:fanbase_piece/src/models/grid_card_option.dart';
+import 'package:fanbase_piece/src/models/grid_card_home_option.dart';
 import 'package:fanbase_piece/src/routes/app_routes.dart';
 
 const DATA_GRID_HOME = {
-  '1': GridCardOption(
+  '1': GridCardHomeOption(
     title: 'Personagens',
     image: 'assets/images/grid/characters.png',
     route: AppRoutes.CHARACTERS,
   ),
-  '2': GridCardOption(
+  '2': GridCardHomeOption(
     title: 'Cenários',
     image: 'assets/images/grid/scenes.png',
     route: AppRoutes.HOME,
   ),
-  '3': GridCardOption(
+  '3': GridCardHomeOption(
     title: 'Akuma no Mi',
     image: 'assets/images/grid/akuma_no_mi.png',
     route: AppRoutes.HOME,
   ),
-  '4': GridCardOption(
-    title: 'Armas',
-    image: 'assets/images/grid/weapons.png',
+  '4': GridCardHomeOption(
+    title: 'Itens',
+    image: 'assets/images/grid/items.png',
     route: AppRoutes.HOME,
   ),
-  '5': GridCardOption(
+  '5': GridCardHomeOption(
     title: 'Haki',
-    image: 'assets/images/grid/haki.jpg',
+    image: 'assets/images/grid/haki.png',
     route: AppRoutes.HOME,
   ),
-  '6': GridCardOption(
+  '6': GridCardHomeOption(
     title: 'Momentos Épicos',
-    image: 'assets/images/grid/epic_moments.jpg',
+    image: 'assets/images/grid/epic_moments.png',
     route: AppRoutes.HOME,
   ),
-  '7': GridCardOption(
+  '7': GridCardHomeOption(
     title: 'História',
     image: 'assets/images/grid/history.png',
-    route: AppRoutes.HOME,
-  ),
-  '8': GridCardOption(
-    title: 'Sons',
-    image: 'assets/images/grid/sounds.png',
     route: AppRoutes.HOME,
   ),
 };
