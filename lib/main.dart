@@ -1,3 +1,4 @@
+import 'package:fanbase_piece/src/constants/constants.dart';
 import 'package:fanbase_piece/src/routes/app_routes.dart';
 import 'package:fanbase_piece/src/views/characters.dart';
 import 'package:fanbase_piece/src/views/favorites.dart';
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Fanbase Piece',
       theme: ThemeData(
-        primarySwatch: Colors.amber,
+        primarySwatch: customSwatchColor,
         fontFamily: 'PiratesWriters',
       ),
       routes: {
