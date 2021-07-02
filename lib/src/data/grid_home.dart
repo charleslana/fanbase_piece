@@ -28,8 +28,8 @@ const DATA_GRID_HOME = {
     route: AppRoutes.HOME,
   ),
   '6': GridCardHomeOption(
-    title: 'Momentos Épicos',
-    image: 'assets/images/grid/epic_moments.png',
+    title: 'Tripulações',
+    image: 'assets/images/grid/crew.png',
     route: AppRoutes.HOME,
   ),
   '7': GridCardHomeOption(
