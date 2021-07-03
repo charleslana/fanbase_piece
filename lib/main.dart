@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
         AppRoutes.SPLASHSCREEN: (_) => Splashscreen(),
         AppRoutes.HOME: (_) => Home(),
         AppRoutes.FAVORITES: (_) => Favorites(),
-        AppRoutes.CHARACTERS: (_) => BaseCharacters(),
+        AppRoutes.CHARACTERS: (_) => ViewCharacters(),
       },
     );
   }

@@ -5,8 +5,8 @@ import 'package:fanbase_piece/src/data/grid_character.dart';
 import 'package:fanbase_piece/src/models/grid_card_character_option.dart';
 import 'package:flutter/material.dart';
 
-class BaseCharacters extends StatelessWidget {
-  BaseCharacters({Key? key}) : super(key: key);
+class ViewCharacters extends StatelessWidget {
+  ViewCharacters({Key? key}) : super(key: key);
   final Map<String, GridCardCharacterOption> options = {...DATA_GRID_CHARACTER};
 
   @override

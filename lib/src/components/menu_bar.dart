@@ -1,4 +1,5 @@
 import 'package:fanbase_piece/src/routes/app_routes.dart';
+import 'package:fanbase_piece/src/views/home.dart';
 import 'package:flutter/material.dart';
 
 class MenuBar extends StatelessWidget {
@@ -66,7 +67,10 @@ class MenuBar extends StatelessWidget {
                       child: InkWell(
                         onTap: () => back == null
                             ? null
-                            : Navigator.of(context).pushNamed(AppRoutes.HOME),
+                            : Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (BuildContext context) => Home())),
                       ),
                     ),
                     back == null
