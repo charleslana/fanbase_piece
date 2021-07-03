@@ -11,7 +11,7 @@ class ShowCharacter extends StatefulWidget {
 }
 
 class _ShowCharacterState extends State<ShowCharacter> {
-  late final CharacterModel _character;
+  late CharacterModel _character;
 
   @override
   void didChangeDependencies() {
