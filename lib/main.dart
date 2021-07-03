@@ -3,6 +3,7 @@ import 'package:fanbase_piece/src/routes/app_routes.dart';
 import 'package:fanbase_piece/src/views/characters.dart';
 import 'package:fanbase_piece/src/views/home.dart';
 import 'package:fanbase_piece/src/views/logo.dart';
+import 'package:fanbase_piece/src/views/show_character.dart';
 import 'package:fanbase_piece/src/views/splashscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -36,6 +37,7 @@ class MyApp extends StatelessWidget {
         AppRoutes.SPLASHSCREEN: (_) => Splashscreen(),
         AppRoutes.HOME: (_) => Home(),
         AppRoutes.CHARACTERS: (_) => ViewCharacters(),
+        AppRoutes.SHOW_CHARACTER: (_) => ShowCharacter(),
       },
     );
   }

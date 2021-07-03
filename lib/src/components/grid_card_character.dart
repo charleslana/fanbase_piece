@@ -11,7 +11,10 @@ class GridCardCharacter extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: InkWell(
-        onTap: () => Navigator.of(context).pushNamed(AppRoutes.CHARACTERS),
+        onTap: () => Navigator.of(context).pushNamed(
+          AppRoutes.SHOW_CHARACTER,
+          arguments: character,
+        ),
         child: Card(
           elevation: 0,
           color: Colors.transparent,
