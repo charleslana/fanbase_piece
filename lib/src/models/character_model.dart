@@ -1,13 +1,11 @@
 class CharacterModel {
   final String id;
   final String name;
-  final String pathIcon;
-  final String pathImage;
+  final String image;
 
   const CharacterModel({
     required this.id,
     required this.name,
-    required this.pathIcon,
-    required this.pathImage,
+    required this.image,
   });
 }

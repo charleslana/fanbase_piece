@@ -26,7 +26,8 @@ class GridCardCharacter extends StatelessWidget {
                 AspectRatio(
                   aspectRatio: 13.0 / 10.0,
                   child: Image(
-                    image: AssetImage(character.pathIcon),
+                    image: AssetImage(
+                        'assets/images/characters/${character.image}_icon.png'),
                     fit: BoxFit.contain,
                     alignment: Alignment.center,
                   ),

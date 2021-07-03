@@ -1,4 +1,4 @@
-import 'package:fanbase_piece/src/components/main_background.dart';
+import 'package:fanbase_piece/src/components/character_background.dart';
 import 'package:fanbase_piece/src/components/menu_bar.dart';
 import 'package:fanbase_piece/src/models/character_model.dart';
 import 'package:flutter/material.dart';
@@ -29,17 +29,42 @@ class _ShowCharacterState extends State<ShowCharacter> {
     return Scaffold(
       body: Stack(
         children: [
-          MainBackground(),
+          CharacterBackground(),
           MenuBar(
-            title: 'Model',
+            title: 'Informações',
             enableBack: true,
           ),
           Container(
             margin: EdgeInsets.only(
-              top: 180,
+              top: MediaQuery.of(context).size.width * 0.20,
             ),
             child: Center(
-              child: Text(_character.name),
+              child: AspectRatio(
+                aspectRatio: 13.0 / 10.0,
+                child: Image(
+                  image: AssetImage(
+                      'assets/images/characters/${_character.image}.png'),
+                  fit: BoxFit.contain,
+                  alignment: Alignment.center,
+                ),
+              ),
+            ),
+          ),
+          Positioned.fill(
+            child: Align(
+              alignment: Alignment.bottomCenter,
+              child: Container(
+                height: MediaQuery.of(context).size.height * 0.40,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage('assets/images/character_footer.png'),
+                    fit: BoxFit.fill,
+                  ),
+                ),
+                child: Center(
+                  child: Text('Texto'),
+                ),
+              ),
             ),
           ),
         ],

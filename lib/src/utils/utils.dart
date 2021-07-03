@@ -13,8 +13,7 @@ class Utils {
               () => CharacterModel(
                 id: key,
                 name: value.name,
-                pathIcon: value.pathIcon,
-                pathImage: value.pathImage,
+                image: value.image,
               ),
             ),
           },
