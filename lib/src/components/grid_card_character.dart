@@ -1,10 +1,11 @@
-import 'package:fanbase_piece/src/models/grid_card_character_option.dart';
+import 'package:fanbase_piece/src/models/character_model.dart';
 import 'package:fanbase_piece/src/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 
 class GridCardCharacter extends StatelessWidget {
-  final GridCardCharacterOption option;
-  const GridCardCharacter({Key? key, required this.option}) : super(key: key);
+  final CharacterModel character;
+  const GridCardCharacter({Key? key, required this.character})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +23,7 @@ class GridCardCharacter extends StatelessWidget {
                 AspectRatio(
                   aspectRatio: 13.0 / 10.0,
                   child: Image(
-                    image: AssetImage(option.image),
+                    image: AssetImage(character.pathIcon),
                     fit: BoxFit.contain,
                     alignment: Alignment.center,
                   ),

@@ -1,15 +1,15 @@
-import 'package:fanbase_piece/src/models/grid_card_home_option.dart';
+import 'package:fanbase_piece/src/models/home_model.dart';
 import 'package:flutter/material.dart';
 
 class GridCardHome extends StatelessWidget {
-  final GridCardHomeOption option;
-  const GridCardHome({Key? key, required this.option}) : super(key: key);
+  final HomeModel home;
+  const GridCardHome({Key? key, required this.home}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       child: InkWell(
-        onTap: () => Navigator.of(context).pushNamed(option.route),
+        onTap: () => Navigator.of(context).pushNamed(home.route),
         child: Card(
           elevation: 0,
           color: Colors.transparent,
@@ -21,7 +21,7 @@ class GridCardHome extends StatelessWidget {
                 AspectRatio(
                   aspectRatio: 13.0 / 10.0,
                   child: Image(
-                    image: AssetImage(option.image),
+                    image: AssetImage(home.image),
                     fit: BoxFit.contain,
                     alignment: Alignment.center,
                   ),
@@ -31,7 +31,7 @@ class GridCardHome extends StatelessWidget {
                     top: 5.0,
                   ),
                   child: Text(
-                    option.title,
+                    home.title,
                     style: TextStyle(
                       fontSize: 15,
                     ),

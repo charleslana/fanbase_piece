@@ -1,17 +1,14 @@
-import 'package:fanbase_piece/src/routes/app_routes.dart';
 import 'package:fanbase_piece/src/views/home.dart';
 import 'package:flutter/material.dart';
 
 class MenuBar extends StatelessWidget {
   final String title;
-  final bool? back;
-  final bool? home;
+  final bool? enableBack;
 
   const MenuBar({
     Key? key,
     required this.title,
-    this.back,
-    this.home,
+    this.enableBack,
   }) : super(key: key);
 
   @override
@@ -65,7 +62,7 @@ class MenuBar extends StatelessWidget {
                         ),
                       ),
                       child: InkWell(
-                        onTap: () => back == null
+                        onTap: () => enableBack == null
                             ? null
                             : Navigator.pushReplacement(
                                 context,
@@ -73,23 +70,8 @@ class MenuBar extends StatelessWidget {
                                     builder: (BuildContext context) => Home())),
                       ),
                     ),
-                    back == null
-                        ? Container(
-                            margin: EdgeInsets.all(5.0),
-                            width: 100.0,
-                            height: 100.0,
-                            decoration: BoxDecoration(
-                              image: DecorationImage(
-                                image: AssetImage(
-                                    'assets/images/menu_bar/favorites.png'),
-                                fit: BoxFit.contain,
-                              ),
-                            ),
-                            child: InkWell(
-                              onTap: () => Navigator.of(context)
-                                  .pushNamed(AppRoutes.FAVORITES),
-                            ),
-                          )
+                    enableBack == null
+                        ? Container()
                         : Container(
                             margin: EdgeInsets.all(5.0),
                             width: 100.0,

@@ -12,16 +12,15 @@ class Favorites extends StatelessWidget {
         children: [
           MainBackground(),
           MenuBar(
-            title: 'Favoritos',
-            home: true,
-            back: true,
+            title: 'Model',
+            enableBack: true,
           ),
           Container(
             margin: EdgeInsets.only(
               top: 180,
             ),
             child: Center(
-              child: Text('Favoritos'),
+              child: Text('Model'),
             ),
           ),
         ],

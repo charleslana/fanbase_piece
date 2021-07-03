@@ -1,13 +1,13 @@
 import 'package:fanbase_piece/src/components/grid_card_home.dart';
 import 'package:fanbase_piece/src/components/main_background.dart';
 import 'package:fanbase_piece/src/components/menu_bar.dart';
-import 'package:fanbase_piece/src/data/grid_home.dart';
-import 'package:fanbase_piece/src/models/grid_card_home_option.dart';
+import 'package:fanbase_piece/src/data/home_data.dart';
+import 'package:fanbase_piece/src/models/home_model.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatelessWidget {
   Home({Key? key}) : super(key: key);
-  final Map<String, GridCardHomeOption> options = {...DATA_GRID_HOME};
+  final Map<String, HomeModel> _homeData = {...HOME_DATA};
 
   @override
   Widget build(BuildContext context) {
@@ -28,11 +28,11 @@ class Home extends StatelessWidget {
               mainAxisSpacing: 4,
               padding: EdgeInsets.all(8.0),
               children: List.generate(
-                options.length,
+                _homeData.length,
                 (index) {
                   return Center(
                     child:
-                        GridCardHome(option: options.values.elementAt(index)),
+                        GridCardHome(home: _homeData.values.elementAt(index)),
                   );
                 },
               ),

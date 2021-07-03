@@ -1,13 +1,40 @@
 import 'package:fanbase_piece/src/components/grid_card_character.dart';
 import 'package:fanbase_piece/src/components/main_background.dart';
 import 'package:fanbase_piece/src/components/menu_bar.dart';
-import 'package:fanbase_piece/src/data/grid_character.dart';
-import 'package:fanbase_piece/src/models/grid_card_character_option.dart';
+import 'package:fanbase_piece/src/data/character_data.dart';
+import 'package:fanbase_piece/src/models/character_model.dart';
+import 'package:fanbase_piece/src/utils/utils.dart';
 import 'package:flutter/material.dart';
 
-class ViewCharacters extends StatelessWidget {
+class ViewCharacters extends StatefulWidget {
   ViewCharacters({Key? key}) : super(key: key);
-  final Map<String, GridCardCharacterOption> options = {...DATA_GRID_CHARACTER};
+
+  @override
+  _ViewCharactersState createState() => _ViewCharactersState();
+}
+
+class _ViewCharactersState extends State<ViewCharacters> {
+  final Map<String, CharacterModel> _characters = {...CHARACTER_DATA};
+  late Map<String, CharacterModel> _filterCharacters;
+
+  @override
+  void initState() {
+    super.initState();
+    _filterCharacters = _characters;
+  }
+
+  void _changeFilterCharacter(String text) {
+    if (text != '') {
+      final filterCharacters =
+          Utils().searchFilterCharacters(_characters, text);
+      return setState(() {
+        _filterCharacters = filterCharacters;
+      });
+    }
+    setState(() {
+      _filterCharacters = _characters;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -17,8 +44,7 @@ class ViewCharacters extends StatelessWidget {
           MainBackground(),
           MenuBar(
             title: 'Personagens',
-            home: true,
-            back: true,
+            enableBack: true,
           ),
           Container(
             margin: EdgeInsets.only(
@@ -45,6 +71,9 @@ class ViewCharacters extends StatelessWidget {
                         ),
                       ),
                     ),
+                    onChanged: (text) {
+                      _changeFilterCharacter(text);
+                    },
                   ),
                 ),
                 Expanded(
@@ -54,11 +83,12 @@ class ViewCharacters extends StatelessWidget {
                     mainAxisSpacing: 4,
                     padding: EdgeInsets.all(8.0),
                     children: List.generate(
-                      options.length,
+                      _filterCharacters.length,
                       (index) {
                         return Center(
                           child: GridCardCharacter(
-                              option: options.values.elementAt(index)),
+                              character:
+                                  _filterCharacters.values.elementAt(index)),
                         );
                       },
                     ),
