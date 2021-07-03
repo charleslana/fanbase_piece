@@ -14,15 +14,16 @@ class MenuBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 200.0,
+      height: MediaQuery.of(context).size.height * 0.30,
+      padding: EdgeInsets.symmetric(horizontal: 20),
       child: Stack(
         children: [
           Container(
             margin: EdgeInsets.only(
-              top: 20,
+              top: MediaQuery.of(context).size.width * 0.10,
             ),
             width: MediaQuery.of(context).size.width,
-            height: 100.0,
+            height: double.infinity,
             decoration: BoxDecoration(
               image: DecorationImage(
                 image: AssetImage('assets/images/menu_bar/title.png'),
@@ -31,7 +32,7 @@ class MenuBar extends StatelessWidget {
             ),
             child: Container(
               margin: EdgeInsets.only(
-                top: 40,
+                top: 55,
               ),
               alignment: Alignment.center,
               child: Text(
@@ -40,56 +41,34 @@ class MenuBar extends StatelessWidget {
               ),
             ),
           ),
-          Positioned(
-            top: 100.0,
-            left: 0.0,
-            right: 0.0,
-            child: Container(
-              child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 20.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      margin: EdgeInsets.all(5.0),
-                      width: 100.0,
-                      height: 100.0,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage('assets/images/menu_bar/home.png'),
+          Positioned.fill(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                InkWell(
+                  onTap: () => enableBack == null
+                      ? null
+                      : Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (BuildContext context) => Home())),
+                  child: Image(
+                    image: AssetImage('assets/images/menu_bar/home.png'),
+                    fit: BoxFit.contain,
+                    alignment: Alignment.center,
+                  ),
+                ),
+                enableBack == null
+                    ? Container()
+                    : InkWell(
+                        onTap: () => Navigator.of(context).pop(),
+                        child: Image(
+                          image: AssetImage('assets/images/menu_bar/back.png'),
                           fit: BoxFit.contain,
+                          alignment: Alignment.center,
                         ),
                       ),
-                      child: InkWell(
-                        onTap: () => enableBack == null
-                            ? null
-                            : Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (BuildContext context) => Home())),
-                      ),
-                    ),
-                    enableBack == null
-                        ? Container()
-                        : Container(
-                            margin: EdgeInsets.all(5.0),
-                            width: 100.0,
-                            height: 100.0,
-                            decoration: BoxDecoration(
-                              image: DecorationImage(
-                                image: AssetImage(
-                                    'assets/images/menu_bar/back.png'),
-                                fit: BoxFit.contain,
-                              ),
-                            ),
-                            child: InkWell(
-                              onTap: () => Navigator.of(context).pop(),
-                            ),
-                          ),
-                  ],
-                ),
-              ),
+              ],
             ),
           ),
         ],

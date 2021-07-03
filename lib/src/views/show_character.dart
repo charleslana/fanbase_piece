@@ -26,35 +26,40 @@ class _ShowCharacterState extends State<ShowCharacter> {
 
   @override
   Widget build(BuildContext context) {
+    final screenSize = MediaQuery.of(context).size;
     return Scaffold(
       body: Stack(
         children: [
           CharacterBackground(),
-          MenuBar(
-            title: 'Informações',
-            enableBack: true,
-          ),
-          Container(
-            margin: EdgeInsets.only(
-              top: MediaQuery.of(context).size.width * 0.20,
-            ),
-            child: Center(
-              child: AspectRatio(
-                aspectRatio: 13.0 / 10.0,
-                child: Image(
-                  image: AssetImage(
-                      'assets/images/characters/${_character.image}.png'),
-                  fit: BoxFit.contain,
-                  alignment: Alignment.center,
+          Column(
+            children: [
+              MenuBar(
+                title: 'Personagem',
+                enableBack: true,
+              ),
+              Container(
+                margin: EdgeInsets.only(
+                  top: screenSize.height * 0.05,
+                ),
+                child: Center(
+                  child: AspectRatio(
+                    aspectRatio: 13.0 / 10.0,
+                    child: Image(
+                      image: AssetImage(
+                          'assets/images/characters/${_character.image}.png'),
+                      fit: BoxFit.contain,
+                      alignment: Alignment.center,
+                    ),
+                  ),
                 ),
               ),
-            ),
+            ],
           ),
           Positioned.fill(
             child: Align(
               alignment: Alignment.bottomCenter,
               child: Container(
-                height: MediaQuery.of(context).size.height * 0.40,
+                height: screenSize.height * 0.40,
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage('assets/images/character_footer.png'),
@@ -62,7 +67,7 @@ class _ShowCharacterState extends State<ShowCharacter> {
                   ),
                 ),
                 child: Center(
-                  child: Text('Texto'),
+                  child: Text(_character.name),
                 ),
               ),
             ),

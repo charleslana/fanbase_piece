@@ -15,28 +15,29 @@ class Home extends StatelessWidget {
       body: Stack(
         children: [
           MainBackground(),
-          MenuBar(
-            title: 'Home',
-          ),
-          Container(
-            margin: EdgeInsets.only(
-              top: 200,
-            ),
-            child: GridView.count(
-              crossAxisCount: 3,
-              crossAxisSpacing: 4,
-              mainAxisSpacing: 4,
-              padding: EdgeInsets.all(8.0),
-              children: List.generate(
-                _homeData.length,
-                (index) {
-                  return Center(
-                    child:
-                        GridCardHome(home: _homeData.values.elementAt(index)),
-                  );
-                },
+          Column(
+            children: [
+              MenuBar(
+                title: 'Home',
               ),
-            ),
+              Expanded(
+                child: GridView.count(
+                  crossAxisCount: 3,
+                  crossAxisSpacing: 4,
+                  mainAxisSpacing: 4,
+                  padding: EdgeInsets.all(8.0),
+                  children: List.generate(
+                    _homeData.length,
+                    (index) {
+                      return Center(
+                        child: GridCardHome(
+                            home: _homeData.values.elementAt(index)),
+                      );
+                    },
+                  ),
+                ),
+              ),
+            ],
           ),
         ],
       ),
