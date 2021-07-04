@@ -12,6 +12,13 @@ class ShowCharacter extends StatefulWidget {
 
 class _ShowCharacterState extends State<ShowCharacter> {
   late final CharacterModel _character;
+  late String _currentImage = '${_character.image}_1';
+
+  void _changeImage(String image) {
+    setState(() {
+      _currentImage = image;
+    });
+  }
 
   @override
   void didChangeDependencies() {
@@ -27,6 +34,7 @@ class _ShowCharacterState extends State<ShowCharacter> {
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
+
     return Scaffold(
       body: Stack(
         children: [
@@ -34,7 +42,7 @@ class _ShowCharacterState extends State<ShowCharacter> {
           Column(
             children: [
               MenuBar(
-                title: 'Personagem',
+                title: _character.name,
                 enableBack: true,
               ),
               Container(
@@ -46,7 +54,7 @@ class _ShowCharacterState extends State<ShowCharacter> {
                     aspectRatio: 13.0 / 10.0,
                     child: Image(
                       image: AssetImage(
-                          'assets/images/characters/${_character.image}.png'),
+                          'assets/images/characters/$_currentImage.png'),
                       fit: BoxFit.contain,
                       alignment: Alignment.center,
                     ),
@@ -66,8 +74,60 @@ class _ShowCharacterState extends State<ShowCharacter> {
                     fit: BoxFit.fill,
                   ),
                 ),
-                child: Center(
-                  child: Text(_character.name),
+                child: Container(
+                  margin: EdgeInsets.only(top: 80),
+                  alignment: Alignment.center,
+                  child: Column(
+                    children: [
+                      Wrap(
+                        spacing: 8.0,
+                        runSpacing: 4.0,
+                        children: _character.images.map((index) {
+                          return GestureDetector(
+                            child: Container(
+                              alignment: Alignment.center,
+                              margin: EdgeInsets.symmetric(
+                                horizontal: 2,
+                              ),
+                              width: 40,
+                              height: 40,
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                  image: AssetImage(
+                                      'assets/images/icons/select.png'),
+                                  fit: BoxFit.contain,
+                                ),
+                              ),
+                              child: Text(
+                                index.toString(),
+                                style: TextStyle(
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                            onTap: () => _changeImage(
+                                _character.image + '_' + index.toString()),
+                          );
+                        }).toList(),
+                      ),
+                      SingleChildScrollView(
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.all(15),
+                              child: Text(
+                                'Rank ${_character.rank}',
+                                style: TextStyle(
+                                  fontSize: 30,
+                                  fontFamily: 'PoetsenOne',
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               ),
             ),

@@ -81,7 +81,11 @@ flutter:
 
     - family: Skorid
       fonts:
-        - asset: assets/fonts/Skorid-Regular.ttf        
+        - asset: assets/fonts/Skorid-Regular.ttf
+        
+    - family: PoetsenOne
+      fonts:
+        - asset: assets/fonts/PoetsenOne-Regular.ttf        
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

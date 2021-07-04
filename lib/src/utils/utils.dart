@@ -11,9 +11,11 @@ class Utils {
             filters.putIfAbsent(
               key,
               () => CharacterModel(
-                id: key,
+                id: int.parse(key),
                 name: value.name,
                 image: value.image,
+                images: value.images,
+                rank: value.rank,
               ),
             ),
           },
