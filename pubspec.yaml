@@ -54,6 +54,8 @@ flutter:
     - assets/images/logo/
     - assets/images/characters/
     - assets/images/menu_bar/
+    - assets/images/organizations/
+    - assets/images/haki/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

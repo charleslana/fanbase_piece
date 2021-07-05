@@ -16,6 +16,8 @@ class Utils {
                 image: value.image,
                 images: value.images,
                 rank: value.rank,
+                organization: value.organization,
+                haki: value.haki,
               ),
             ),
           },

@@ -1,5 +1,6 @@
 import 'package:fanbase_piece/src/components/character_background.dart';
 import 'package:fanbase_piece/src/components/menu_bar.dart';
+import 'package:fanbase_piece/src/components/tooltip_text.dart';
 import 'package:fanbase_piece/src/models/character_model.dart';
 import 'package:flutter/material.dart';
 
@@ -110,22 +111,74 @@ class _ShowCharacterState extends State<ShowCharacter> {
                           );
                         }).toList(),
                       ),
-                      SingleChildScrollView(
-                        child: Column(
-                          children: [
-                            Padding(
-                              padding: EdgeInsets.all(15),
-                              child: Text(
-                                'Rank ${_character.rank}',
-                                style: TextStyle(
-                                  fontSize: 30,
-                                  fontFamily: 'PoetsenOne',
+                      Expanded(
+                        child: SingleChildScrollView(
+                          child: Column(
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.all(15),
+                                child: Text(
+                                  'Rank ${_character.rank}',
+                                  style: TextStyle(
+                                    fontSize: 30,
+                                    fontFamily: 'PoetsenOne',
+                                  ),
                                 ),
                               ),
-                            )
-                          ],
+                              Padding(
+                                padding: EdgeInsets.all(15),
+                                child: TooltipText(
+                                  child: Image(
+                                    image: AssetImage(
+                                        'assets/images/organizations/${_character.organization}.png'),
+                                    fit: BoxFit.contain,
+                                    alignment: Alignment.center,
+                                    width: 40,
+                                  ),
+                                  text: _character.organization == 1
+                                      ? 'Pirata'
+                                      : _character.organization == 2
+                                          ? 'Marinha'
+                                          : 'Revolucionário',
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.all(15),
+                                child: _character.haki.length == 0
+                                    ? Text('O personagem não possui haki.')
+                                    : Wrap(
+                                        spacing: 8.0,
+                                        runSpacing: 4.0,
+                                        children: _character.haki.map((index) {
+                                          return TooltipText(
+                                            text: index == 1
+                                                ? 'Haki da Observação'
+                                                : index == 2
+                                                    ? 'Haki do Armamento'
+                                                    : 'Haki do Rei',
+                                            child: Container(
+                                              alignment: Alignment.center,
+                                              margin: EdgeInsets.symmetric(
+                                                horizontal: 2,
+                                              ),
+                                              width: 40,
+                                              height: 40,
+                                              decoration: BoxDecoration(
+                                                image: DecorationImage(
+                                                  image: AssetImage(
+                                                      'assets/images/haki/$index.png'),
+                                                  fit: BoxFit.contain,
+                                                ),
+                                              ),
+                                            ),
+                                          );
+                                        }).toList(),
+                                      ),
+                              ),
+                            ],
+                          ),
                         ),
-                      )
+                      ),
                     ],
                   ),
                 ),
