@@ -38,61 +38,64 @@ class _ViewCharactersState extends State<ViewCharacters> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
-        children: [
-          MainBackground(),
-          Column(
-            children: [
-              MenuBar(
-                title: 'Personagens',
-                enableBack: true,
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-                child: TextField(
-                  decoration: InputDecoration(
-                    prefixIcon: Image(
-                      image: AssetImage('assets/images/icons/search.png'),
-                      fit: BoxFit.contain,
-                      alignment: Alignment.center,
-                      height: 8,
-                    ),
-                    border: UnderlineInputBorder(),
-                    hintText: 'Procurar um personagem',
-                    focusedBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Colors.black,
-                        width: 2.0,
+    return GestureDetector(
+      onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+      child: Scaffold(
+        body: Stack(
+          children: [
+            MainBackground(),
+            Column(
+              children: [
+                MenuBar(
+                  title: 'Personagens',
+                  enableBack: true,
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+                  child: TextField(
+                    decoration: InputDecoration(
+                      prefixIcon: Image(
+                        image: AssetImage('assets/images/icons/search.png'),
+                        fit: BoxFit.contain,
+                        alignment: Alignment.center,
+                        height: 8,
+                      ),
+                      border: UnderlineInputBorder(),
+                      hintText: 'Procurar um personagem',
+                      focusedBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.black,
+                          width: 2.0,
+                        ),
                       ),
                     ),
-                  ),
-                  onChanged: (text) {
-                    _changeFilterCharacter(text);
-                  },
-                ),
-              ),
-              Expanded(
-                child: GridView.count(
-                  crossAxisCount: 4,
-                  crossAxisSpacing: 4,
-                  mainAxisSpacing: 4,
-                  padding: EdgeInsets.all(8.0),
-                  children: List.generate(
-                    _filterCharacters.length,
-                    (index) {
-                      return Center(
-                        child: GridCardCharacter(
-                            character:
-                                _filterCharacters.values.elementAt(index)),
-                      );
+                    onChanged: (text) {
+                      _changeFilterCharacter(text);
                     },
                   ),
                 ),
-              ),
-            ],
-          ),
-        ],
+                Expanded(
+                  child: GridView.count(
+                    crossAxisCount: 4,
+                    crossAxisSpacing: 4,
+                    mainAxisSpacing: 4,
+                    padding: EdgeInsets.all(8.0),
+                    children: List.generate(
+                      _filterCharacters.length,
+                      (index) {
+                        return Center(
+                          child: GridCardCharacter(
+                              character:
+                                  _filterCharacters.values.elementAt(index)),
+                        );
+                      },
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

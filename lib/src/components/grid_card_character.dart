@@ -9,31 +9,33 @@ class GridCardCharacter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: InkWell(
-        onTap: () => Navigator.of(context).pushNamed(
+    return GestureDetector(
+      onTap: () {
+        FocusScope.of(context).requestFocus(FocusNode());
+
+        Navigator.of(context).pushNamed(
           AppRoutes.SHOW_CHARACTER,
           arguments: character,
-        ),
-        child: Card(
-          elevation: 0,
-          color: Colors.transparent,
-          child: Center(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                AspectRatio(
-                  aspectRatio: 13.0 / 10.0,
-                  child: Image(
-                    image: AssetImage(
-                        'assets/images/characters/${character.image}_icon.png'),
-                    fit: BoxFit.contain,
-                    alignment: Alignment.center,
-                  ),
+        );
+      },
+      child: Card(
+        elevation: 0,
+        color: Colors.transparent,
+        child: Center(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              AspectRatio(
+                aspectRatio: 13.0 / 10.0,
+                child: Image(
+                  image: AssetImage(
+                      'assets/images/characters/${character.image}_icon.png'),
+                  fit: BoxFit.contain,
+                  alignment: Alignment.center,
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
