@@ -3,23 +3,32 @@ import 'package:flutter/material.dart';
 class TooltipText extends StatelessWidget {
   final String text;
   final Widget child;
-  const TooltipText({
+  TooltipText({
     Key? key,
     required this.text,
     required this.child,
   }) : super(key: key);
 
+  GlobalKey _toolTipKey = GlobalKey();
+
   @override
   Widget build(BuildContext context) {
-    return Tooltip(
-      decoration: BoxDecoration(
-        color: Colors.black.withOpacity(0.9),
-        borderRadius: BorderRadius.all(
-          Radius.circular(4),
+    return GestureDetector(
+      onTap: () {
+        final dynamic _toolTip = _toolTipKey.currentState;
+        _toolTip.ensureTooltipVisible();
+      },
+      child: Tooltip(
+        key: _toolTipKey,
+        decoration: BoxDecoration(
+          color: Colors.black.withOpacity(0.9),
+          borderRadius: BorderRadius.all(
+            Radius.circular(4),
+          ),
         ),
+        message: text,
+        child: child,
       ),
-      message: text,
-      child: child,
     );
   }
 }
