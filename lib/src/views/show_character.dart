@@ -12,24 +12,14 @@ class ShowCharacter extends StatefulWidget {
 }
 
 class _ShowCharacterState extends State<ShowCharacter> {
-  late final CharacterModel _character;
+  late final CharacterModel _character =
+      ModalRoute.of(context)!.settings.arguments as CharacterModel;
   late String _currentImage = '${_character.image}_1';
 
   void _changeImage(String image) {
     setState(() {
       _currentImage = image;
     });
-  }
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-
-    final character = ModalRoute.of(context)!.settings.arguments;
-
-    if (character != null) {
-      _character = character as CharacterModel;
-    }
   }
 
   @override

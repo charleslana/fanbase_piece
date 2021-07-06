@@ -3,13 +3,10 @@ import 'package:flutter/material.dart';
 class TooltipText extends StatelessWidget {
   final String text;
   final Widget child;
-  TooltipText({
-    Key? key,
-    required this.text,
-    required this.child,
-  }) : super(key: key);
+  TooltipText({Key? key, required this.text, required this.child})
+      : super(key: key);
 
-  GlobalKey _toolTipKey = GlobalKey();
+  final GlobalKey _toolTipKey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
