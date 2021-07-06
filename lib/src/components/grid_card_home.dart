@@ -19,7 +19,7 @@ class GridCardHome extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 AspectRatio(
-                  aspectRatio: 15.0 / 10.0,
+                  aspectRatio: 14.0 / 10.0,
                   child: Image(
                     image: AssetImage(home.image),
                     fit: BoxFit.contain,
